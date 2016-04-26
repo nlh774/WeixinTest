@@ -1,0 +1,2209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommTools</name>
+    </assembly>
+    <members>
+        <member name="T:CommTools.IPHelper">
+            <summary>
+            配置本机的IP环境。包括IP,SubnetMask,Gateway,DNS
+            需在调用处判断参数是否IP地址规范，因为本类不会提示报错。
+            </summary>
+        </member>
+        <member name="M:CommTools.IPHelper.SetDNS(System.String[])">
+            <summary>
+            设置DNS
+            </summary>
+            <param name="dns"></param>
+        </member>
+        <member name="M:CommTools.IPHelper.SetGetWay(System.String)">
+            <summary>
+            设置网关
+            </summary>
+            <param name="getway"></param>
+        </member>
+        <member name="M:CommTools.IPHelper.SetGetWay(System.String[])">
+            <summary>
+            设置网关
+            </summary>
+            <param name="getway"></param>
+        </member>
+        <member name="M:CommTools.IPHelper.SetIPAddress(System.String,System.String)">
+            <summary>
+            设置IP地址和掩码
+            </summary>
+            <param name="ip"></param>
+            <param name="submask"></param>
+        </member>
+        <member name="M:CommTools.IPHelper.SetIPAddress(System.String,System.String,System.String)">
+            <summary>
+            设置IP地址，掩码和网关
+            </summary>
+            <param name="ip"></param>
+            <param name="submask"></param>
+            <param name="getway"></param>
+        </member>
+        <member name="M:CommTools.IPHelper.SetIPAddress(System.String,System.String,System.String,System.String)">
+            <summary>
+            IP地址，掩码，网关,首选DNS
+            </summary>
+            <param name="ip"></param>
+            <param name="submask"></param>
+            <param name="getway"></param>
+            <param name="dns"></param>
+        </member>
+        <member name="M:CommTools.IPHelper.SetIPAddress(System.String[],System.String[],System.String[],System.String[])">
+            <summary>
+            设置IP地址，掩码，网关和DNS
+            </summary>
+            <param name="ip"></param>
+            <param name="submask"></param>
+            <param name="getway"></param>
+            <param name="dns"></param>
+        </member>
+        <member name="M:CommTools.IPHelper.EnableDHCP">
+            <summary>
+            启用DHCP服务器
+            </summary>
+        </member>
+        <member name="M:CommTools.IPHelper.IsNetAddress(System.String)">
+            <summary>
+            判断是否符合网络地址格式
+            ip,subnetMask,gateway，dns本质上都是网络地址，所以也可以验证
+            </summary>
+            <param name="netAddress">IP地址</param>
+            <returns>是否符合格式</returns>
+        </member>
+        <member name="M:CommTools.IPHelper.GetIp">
+            <summary>
+            获取客户端Ip地址
+            若客户端使用代理等技术可能获取不到、不正确，ip为空串
+            </summary>
+            <returns>客户端Ip地址</returns>
+        </member>
+        <member name="M:CommTools.IPHelper.GetLocalIp">
+            <summary>
+            获取本机ip
+            </summary>
+        </member>
+        <member name="T:CommTools.EmailTool">
+            <summary>
+            邮箱发送工具
+            不含发送附件功能，若需要请参见示例：http://www.cnblogs.com/youring2/archive/2008/11/29/1343911.html
+            </summary>
+        </member>
+        <member name="M:CommTools.EmailTool.#ctor(System.String,System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            构造函数，需指定全部属性
+            </summary>
+        </member>
+        <member name="M:CommTools.EmailTool.Send">
+            <summary>
+            执行发送
+            </summary>
+            <returns>返回对象的IsError若为true则出错、失败，否则成功</returns>
+        </member>
+        <member name="P:CommTools.EmailTool.Subject">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:CommTools.EmailTool.Body">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:CommTools.EmailTool.SenderEmail">
+            <summary>
+            发送者邮箱账号
+            </summary>
+        </member>
+        <member name="P:CommTools.EmailTool.SenderEmailPsw">
+            <summary>
+            发送者邮箱密码
+            </summary>
+        </member>
+        <member name="P:CommTools.EmailTool.Host">
+            <summary>
+            邮件接收者Smtp主机名
+            </summary>
+        </member>
+        <member name="P:CommTools.EmailTool.MailTos">
+            <summary>
+            收件人列表
+            </summary>
+        </member>
+        <member name="P:CommTools.EmailTool.MailCcs">
+            <summary>
+            抄送人列表
+            </summary>
+        </member>
+        <member name="T:CommTools.StringOpertion">
+            <summary>
+            字符串工具类
+            </summary>
+        </member>
+        <member name="M:CommTools.StringOpertion.CombineString(System.String,System.String[])">
+            <summary>
+            将数组内容通过连接符串成字符串
+            </summary>
+            <param name="splitedStr">连接符</param>
+            <param name="arr">数组</param>
+            <returns>结果字符串</returns>
+        </member>
+        <member name="M:CommTools.StringOpertion.toMD5(System.String)">
+            <summary>
+            将字符串转换成MD5密码
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.StringOpertion.getRandomChar">
+            <summary>
+            获取A-Z,a-z之间的随机字符
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.StringOpertion.getRandomString(System.Int32)">
+            <summary>
+            获取一定长度的随机字符串,只含a-z,A-Z之间的字符
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommTools.CodePassword">
+            <summary>
+            加解密工具类
+            </summary>
+        </member>
+        <member name="M:CommTools.CodePassword.md5_Encode(System.String)">
+            <summary>
+            MD5加密函数
+            </summary>
+            <param name="str">要加密的字符串</param>
+            <returns>加密后的字符串</returns>
+            
+        </member>
+        <member name="M:CommTools.CodePassword.simple_Encode(System.String)">
+            <summary>
+            简单加密函数
+            </summary>
+            <param name="str">要加密的字符串</param>
+            <returns>返回加密后的字符串</returns>
+            
+        </member>
+        <member name="M:CommTools.CodePassword.simple_Decode(System.String)">
+            <summary>
+            简单解密函数
+            </summary>
+            <param name="str">要解密的字符串</param>
+            <returns>返回解密后的字符串</returns>
+            
+        </member>
+        <member name="M:CommTools.CodePassword.symmetry_Encode(System.String,System.String)">
+            <summary>
+            对称加密法加密函数
+            </summary>
+            <param name="encryptString">待加密的字符串</param>
+            <param name="encryptKey">加密密钥,要求为8位</param>
+            <returns>加密成功返回加密后的字符串，失败返回源串</returns>
+        </member>
+        <member name="M:CommTools.CodePassword.symmetry_Decode(System.String,System.String)">
+            <summary>
+            对称加密法解密函数
+            </summary>
+            <param name="decryptString">待解密的字符串</param>
+            <param name="decryptKey">解密密钥,要求为8位,和加密密钥相同</param>
+            <returns>解密成功返回解密后的字符串，失败返源串</returns>
+        </member>
+        <member name="T:CommTools.HttpErrorDescription">
+            <summary>
+            请求错误枚举
+            </summary>
+        </member>
+        <member name="T:CommTools.WebUtils">
+            <summary>
+            Web请求操作类
+            </summary>
+        </member>
+        <member name="M:CommTools.WebUtils.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="requestUrl">web请求地址</param>
+        </member>
+        <member name="M:CommTools.WebUtils.Do">
+            <summary>
+            使用已设置好的成员属性执行HTTP请求
+            </summary>
+            <returns>HTTP响应键值对，出错态和返回报文串</returns>
+        </member>
+        <member name="M:CommTools.WebUtils.Get``1(System.String)">
+            <summary>
+            创建Get请求，返回对象
+            内部使用对象序列化json串
+            </summary>
+            <typeparam name="T">对象</typeparam>
+            <param name="url">请求url，已加上需要的参数</param>
+        </member>
+        <member name="M:CommTools.WebUtils.Post``1(System.String,System.Object)">
+            <summary>
+            创建Post请求，返回对象
+            内部使用对象序列化json串
+            </summary>
+            <typeparam name="T">对象</typeparam>
+            <param name="url">请求url</param>
+            <param name="requestParameter">请求参数</param>
+        </member>
+        <member name="M:CommTools.WebUtils.Submit``1(System.String,System.Object,System.String)">
+            <summary>
+            http提交至服务器
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="url">请求地址url，若是Get请求则加上参数</param>
+            <param name="requestParameter">若是Get请求则为空。若是POST请求则带上参数</param>
+            <param name="method">方法，Get或Post</param>
+        </member>
+        <member name="M:CommTools.WebUtils.JsonDeserialize``1(System.String)">
+            <summary>
+            将json字符串反序列化为对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="json">对象Json字符串</param>
+        </member>
+        <member name="P:CommTools.WebUtils.RequestUrl">
+            <summary>
+            请求的地址
+            </summary>
+        </member>
+        <member name="P:CommTools.WebUtils.SendData">
+            <summary>
+            发送的数据
+            </summary>
+        </member>
+        <member name="P:CommTools.WebUtils.RequestEncoding">
+            <summary>
+            请求时候的编码，默认UTF-8
+            </summary>
+        </member>
+        <member name="P:CommTools.WebUtils.ResponseEncoding">
+            <summary>
+            返回结果的编码，默认UTF-8
+            </summary>
+        </member>
+        <member name="P:CommTools.WebUtils.Method">
+            <summary>
+            请求的方式，默认Post方式
+            </summary>
+        </member>
+        <member name="P:CommTools.WebUtils.ContentType">
+            <summary>
+            发送数据的类型，默认application/x-www-form-urlencoded
+            </summary>
+        </member>
+        <member name="P:CommTools.WebUtils.Timeout">
+            <summary>
+            超时设置，单位为毫秒，默认10秒
+            </summary>
+        </member>
+        <member name="T:CommTools.Tools">
+            <summary>
+            其他工具类
+            </summary>
+        </member>
+        <member name="M:CommTools.Tools.Swap``1(``0@,``0@)">
+            <summary>
+            交换值或引用类型变量
+            调用本方法时可不指定T类型。因为带参数value1,value2,编译器会自动判断
+            </summary>
+        </member>
+        <member name="M:CommTools.Tools.CaculateFunTime(System.Action,System.Int32,System.Int64@,System.Double@)">
+            <summary>
+            计算函数的执行时间
+            </summary>
+            <param name="func">需要计算时间的函数委托</param>
+            <param name="runCount">运行函数的次数</param>
+            <param name="wholeRunTime">总运行时间，返回输出</param>
+            <param name="perRunTime">每次运行的时间，返回输出</param>
+        </member>
+        <member name="M:CommTools.Tools.GetAppSetting(System.String)">
+            <summary>
+            获取应用程序配置字符串
+            需要引入using System.Configuration;
+            </summary>
+            <param name="key">配置主键</param>
+            <returns>配置字符串</returns>
+        </member>
+        <member name="M:CommTools.Tools.GetConnectionStringSettings(System.String)">
+            <summary>
+            获取应用程序配置数据库
+            需要引入using System.Configuration;
+            </summary>
+            <param name="key">数据库键</param>
+            <returns>配置数据库</returns>
+        </member>
+        <member name="M:CommTools.Tools.ListToDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+            将泛类型集合List类转换成DataTable，DataTable列格式为泛型类集合的属性
+            </summary>
+            <param name="entities">泛类型集合</param>
+            <returns>DataTable,列格式为泛型类集合的属性</returns>
+        </member>
+        <member name="M:CommTools.Tools.GetSelectList(System.Type,System.Boolean,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            根据枚举常量生成下拉框
+            下拉框文本(Text)为枚举的描述Description属性，值(Id)为枚举值
+            </summary>
+            <param name="enumType">枚举类型</param>
+            <param name="isSelect">是否制定选中</param>
+            <param name="selectValue">若指定选中，则指定选中文本</param>
+            <param name="isAddEmpty">是否添加空项</param>
+            <param name="defaultEmptyValue">若添加空项，则指定空项值</param>
+            <returns></returns>
+        </member>
+        <member name="T:CommTools.OperationStatus">
+            <summary>
+            操作执行结果枚举
+            </summary>
+        </member>
+        <member name="T:CommTools.OperationResponse">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="M:CommTools.OperationResponse.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:CommTools.OperationResponse.#ctor(System.Type,System.String,System.Boolean)">
+            <summary>
+            构造
+            </summary>
+            <param name="exception">异常</param>
+            <param name="isPushLog">是否推送错误日志</param>
+        </member>
+        <member name="P:CommTools.OperationResponse.IsPushLog">
+            <summary>
+            是否推送错误日志
+            </summary>
+        </member>
+        <member name="P:CommTools.OperationResponse.IsError">
+            <summary>
+            是否出错
+            </summary>
+        </member>
+        <member name="P:CommTools.OperationResponse.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:CommTools.OperationResponse`1">
+            <summary>
+            返回结果
+            </summary>
+            <typeparam name="T">内容</typeparam>
+        </member>
+        <member name="M:CommTools.OperationResponse`1.#ctor(`0)">
+            <summary>
+            构造
+            </summary>
+            <param name="t">类型</param>
+        </member>
+        <member name="M:CommTools.OperationResponse`1.#ctor(System.Type,System.String,System.Boolean)">
+            <summary>
+            构造
+            </summary>
+            <param name="errorMessage">错误信息</param>
+            <param name="isPushLog">是否推送错误日志</param>
+        </member>
+        <member name="P:CommTools.OperationResponse`1.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:CommTools.OperationResponse`1.IsPushLog">
+            <summary>
+            是否推送日志
+            </summary>
+        </member>
+        <member name="P:CommTools.OperationResponse`1.IsError">
+            <summary>
+            是否出错
+            </summary>
+        </member>
+        <member name="P:CommTools.OperationResponse`1.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:CommTools.ProcessTools">
+            <summary>
+            进程工具类
+            </summary>
+        </member>
+        <member name="M:CommTools.ProcessTools.GetWholeProcessInfo">
+            <summary>
+            获取当前计算机上的所有进程列表
+            </summary>
+            <returns>进程列表</returns>
+        </member>
+        <member name="M:CommTools.ProcessTools.GetProcessInfo(System.Int32)">
+            <summary>
+            返回进程ID对应的信息
+            </summary>
+            <param name="killProcID">进程ID</param>
+            <returns>进程信息，若不存在则为null</returns>
+        </member>
+        <member name="M:CommTools.ProcessTools.GetProcessInfo(System.String)">
+            <summary>
+            返回进程信息
+            可能会有多个同名进程，返回第一个
+            </summary>
+            <param name="killProcName">进程名</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.ProcessTools.KillProcess(System.String)">
+            <summary>
+            关闭对应的进程名
+            </summary>
+            <param name="killProcName">进程名,区分大小写</param>
+            <returns>状态，0表示对应进程不存在，1代表已成功关闭进程，-1代表错误</returns>
+        </member>
+        <member name="M:CommTools.ProcessTools.KillProcess(System.Int32)">
+            <summary>
+            关闭对应ID的进程(进程唯一标识符)
+            </summary>
+            <param name="killProcID">进程ID</param>
+            <returns>状态，0表示对应进程不存在，1代表已成功关闭进程，-1代表错误</returns>
+        </member>
+        <member name="T:CommTools.SerializerHelper">
+            <summary>
+            文件XML序列化工具类
+            </summary>
+        </member>
+        <member name="M:CommTools.SerializerHelper.Serializer(System.String,System.Object,System.Type)">
+            <summary>
+            XML序列化，将对象保存至文件
+            </summary>
+            <param name="filePath">要保存到的文件路径，包括文件名</param>
+            <param name="o">要序列化的具体对象，不用调用者转换。为了兼容通用，内部将具体对象转换成统一的基类object</param>
+            <param name="type">具体对象的类型</param>
+            <returns>操作成功与否</returns>
+        </member>
+        <member name="M:CommTools.SerializerHelper.Serializer(System.String,System.Object,System.Type,System.Exception)">
+            <summary>
+            XML序列化，将对象保存至文件
+            </summary>
+            <param name="filePath">要保存到的文件路径，包括文件名</param>
+            <param name="o">要序列化的具体对象，不用调用者转换。为了兼容通用，内部将具体对象转换成统一的基类object</param>
+            <param name="type">具体对象的类型</param>
+            <param name="exception">异常对象</param>
+            <returns>操作成功与否</returns>
+        </member>
+        <member name="M:CommTools.SerializerHelper.DeSerializer(System.String,System.Object@,System.Type)">
+            <summary>
+            XML反序列化，将含有对象信息的文件读取至内存对象中
+            </summary>
+            <param name="filePath">要读取的文件路径，包括文件名</param>
+            <param name="o">要反序列化的具体对象，调用者需要手动转换</param>
+            <param name="type">具体对象的类型</param>
+            <returns>操作成功与否，若为true，则输出参数o中已有对象，否则，o中为null</returns>
+        </member>
+        <member name="M:CommTools.SerializerHelper.DeSerializer(System.String,System.Object@,System.Type,System.Exception)">
+            <summary>
+            XML反序列化，将含有对象信息的文件读取至内存对象中
+            </summary>
+            <param name="filePath">要读取的文件路径，包括文件名</param>
+            <param name="o">要反序列化的具体对象，调用者需要手动转换</param>
+            <param name="type">具体对象的类型</param>
+            <param name="exception">异常对象</param>
+            <returns>操作成功与否，若为true，则输出参数o中已有对象，否则，o中为null</returns>
+        </member>
+        <member name="T:CommTools.OutPutData">
+            <summary>
+            输出数据至文件，或控制台
+            </summary>
+        </member>
+        <member name="M:CommTools.OutPutData.outPutListBoxData(System.Windows.Forms.ListBox,System.String,System.String)">
+            <summary>
+            从listbox中导出数据
+            </summary>
+            <param name="lbox">listbox控件</param>
+            <param name="txtTitle">导出数据的标题</param>
+            <param name="filter">导出数据的格式(拓展名)</param>
+        </member>
+        <member name="M:CommTools.OutPutData.outPutDataSet(System.Data.DataSet,System.String,System.String)">
+            <summary>
+            导出DataSet数据
+            </summary>
+            <param name="ds">数据源</param>
+            <param name="txtTitle">导出数据的标题</param>
+            <param name="filter">导出数据的格式</param>
+        </member>
+        <member name="M:CommTools.OutPutData.outPutDataGridViewData(System.Windows.Forms.DataGridView,System.String,System.String)">
+            <summary>
+            导出DataGridView数据
+            </summary>
+            <param name="dgv">DataGridView控件</param>
+            <param name="txtTitle">导出数据标题</param>
+            <param name="filter">导出数据格式</param>
+        </member>
+        <member name="M:CommTools.OutPutData.outPutDataGridViewData(System.Windows.Forms.DataGridView,System.String)">
+            <summary>
+            导出DataGridView数据
+            </summary>
+            <param name="dgv">DataGridView控件</param>        
+            <param name="filter">导出数据格式</param>
+        </member>
+        <member name="M:CommTools.OutPutData.OutputEnumable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            输出任意实现IEnumerable迭代器的简单类型，如List_int,arr_int
+            调用本方法时可不指定T类型。因为带参数ienum,编译器会自动判断
+            </summary> 
+        </member>
+        <member name="M:CommTools.OutPutData.OutputParams(System.Object[])">
+            <summary>
+            输出多个参数至终端,默认以英文逗号(,)分隔
+            </summary>
+            <param name="paras">参数列表</param>
+        </member>
+        <member name="M:CommTools.OutPutData.OutputParams(System.String,System.Object[])">
+            <summary>
+            输出多个参数至终端,以参数splitStr的值分隔
+            </summary>
+            <param name="splitStr">分隔符</param>
+            <param name="paras">参数列表</param>
+        </member>
+        <member name="M:CommTools.OutPutData.OutputParamsToString(System.Object[])">
+            <summary>
+            拼接多个参数至字符串,默认以英文逗号(,)分隔
+            </summary>
+            <param name="paras">参数列表</param>
+            <returns>多个参数拼接而成字符串</returns>
+        </member>
+        <member name="M:CommTools.OutPutData.OutputParamsToString(System.String,System.Object[])">
+            <summary>
+            拼接多个参数至字符串,以参数splitStr的值分隔
+            </summary>
+            <param name="splitStr">分隔符</param>
+            <param name="paras">参数列表</param>
+            <returns></returns>
+        </member>
+        <member name="T:CommTools.FormatValider">
+            <summary>
+            字符串格式验证类，需要引入TCSmartFramework.Utility
+            </summary>
+        </member>
+        <member name="M:CommTools.FormatValider.ValidateFormat(System.String,TCSmartFramework.Utility.ValidateType)">
+            <summary>
+            通用验证字符串类型方法
+            未充分测试，慎用！多测试！
+            </summary>
+            <param name="data">待验证类型的字符串</param>
+            <param name="type">类型枚举，源自TCSmartFramework.Utility</param>
+        </member>
+        <member name="M:CommTools.FormatValider.JudgeMobileCarrierOperator(System.String)">
+            <summary>
+            判断手机号码运营商
+            </summary>
+            <param name="mobile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommTools.MobileCarrierOperatorType">
+            <summary>
+            手机号码运营商类型
+            </summary>
+        </member>
+        <member name="F:CommTools.MobileCarrierOperatorType.ChinaMobile">
+            <summary>
+            中国移动
+            </summary>
+        </member>
+        <member name="F:CommTools.MobileCarrierOperatorType.ChinaUnicom">
+            <summary>
+            中国联通
+            </summary>
+        </member>
+        <member name="F:CommTools.MobileCarrierOperatorType.ChinaTelecom">
+            <summary>
+            中国电信
+            </summary>
+        </member>
+        <member name="F:CommTools.MobileCarrierOperatorType.Virtual">
+            <summary>
+            虚拟供应商
+            </summary>
+        </member>
+        <member name="F:CommTools.MobileCarrierOperatorType.None">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:CommTools.MobileCarrierOperatorType.Error">
+            <summary>
+            非手机号码类型
+            </summary>
+        </member>
+        <member name="T:CommTools.AspNetTools">
+            <summary>
+            ASP.NET网页工具类
+            </summary>
+        </member>
+        <member name="M:CommTools.AspNetTools.Alert(System.Web.UI.TemplateControl,System.String)">
+            <summary>
+            弹出提示信息框
+            </summary>
+            <param name="target">页面，一般传入调用的页面This关键字即可</param>
+            <param name="msg">细心内容</param>
+        </member>
+        <member name="M:CommTools.AspNetTools.ToErrorPage(System.String)">
+            <summary>
+            跳至错误页面
+            默认错误页面的相对地址是 ~/Error.aspx
+            </summary>
+            <param name="errorMsg">错误信息</param>
+        </member>
+        <member name="M:CommTools.AspNetTools.ToErrorPage(System.String,System.String)">
+            <summary>
+            跳至错误页面
+            </summary>
+            <param name="errorPagePath">错误页面的相对地址</param>
+            <param name="errorMsg">错误信息</param>
+        </member>
+        <member name="M:CommTools.AspNetTools.GetQueryString(System.String)">
+            <summary>
+            获取对应参数的值
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns>参数值，若不存在该参数则为null</returns>
+        </member>
+        <member name="M:CommTools.AspNetTools.GetQueryString(System.String,System.String,System.String)">
+            <summary>
+            获取传入本页面参数的值,若不存在则跳转至错误页面
+            </summary>
+            <param name="paramName">参数名</param>
+            <param name="errorPagePath">错误页面的相对地址</param>
+            <param name="errorMsg">错误信息</param>
+            <returns>参数值，若不存在该参数则为null</returns>
+        </member>
+        <member name="M:CommTools.AspNetTools.SetRadioButtonListByValue(System.Web.UI.WebControls.RadioButtonList,System.String)">
+            <summary>
+            判断是否相等，相等则RadioButtonList某项被选中
+            </summary>
+            <param name="list"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CommTools.AspNetTools.SetDropDownListByValue(System.Web.UI.WebControls.DropDownList,System.String)">
+            <summary>
+            根据某个值让DropDownList某项被选中
+            </summary>
+            <param name="list"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CommTools.AspNetTools.SetCheckBoxListByList(System.Web.UI.WebControls.CheckBoxList,System.Collections.Generic.List{System.String})">
+            <summary>
+            根据传的集合，让CheckBoxList多项被选中
+            </summary>
+            <param name="list"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:CommTools.DateTimeHelper">
+            <summary>
+            时间日期帮助类
+            </summary>
+        </member>
+        <member name="F:CommTools.DateTimeHelper.Format1">
+            <summary>
+            格式如：2015-11-5 20:31:20
+            </summary>
+        </member>
+        <member name="F:CommTools.DateTimeHelper.Format2">
+            <summary>
+            格式如：2015 11 5 20:31:20
+            </summary>
+        </member>
+        <member name="M:CommTools.DateTimeHelper.VerifyBeginEndTime(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            若时间均不为空，则验证开始时间是否小于结束时间,即是否合法
+            起止时间其中一个或两个为空，则返回是-合法
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">截止时间</param>
+        </member>
+        <member name="M:CommTools.ConverntHelper.CloneEntity``2(``0)">
+            <summary>
+            克隆实体，深复制
+            </summary>
+            <typeparam name="T1">克隆的源的类型</typeparam>
+            <typeparam name="T2">需要克隆为的类型</typeparam>
+            <param name="t1">克隆的源对象</param>
+            <returns>克隆的目标对象</returns>
+        </member>
+        <member name="M:CommTools.ConverntHelper.SerialDataTableXml(System.Data.DataTable,System.String)">
+            <summary>
+            序列化成xml
+            </summary>
+            <param name="dt"></param>
+            <param name="dtname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.ConverntHelper.DeSerialXmlToDataTable(System.String)">
+            <summary>
+            反序列化成dataTable
+            </summary>
+            <param name="pXml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.ConverntHelper.DataTableToEntity``1(System.Data.DataTable)">
+            <summary>
+            含数据的DataTable转数据库实体
+            务必：数据库表的列名（DataTable的列元素名）和数据库实体属性名一致
+            </summary>
+            <typeparam name="T">数据库实体类型</typeparam>
+            <param name="dt">含数据的DataTable</param>
+            <returns>数据库实体</returns>
+        </member>
+        <member name="M:CommTools.ConverntHelper.DataTableToEntityList``1(System.Data.DataTable)">
+            <summary>
+            含数据的DataTable转List 数据库实体
+            务必：数据库表的列名（DataTable的列元素名）和数据库实体属性名一致
+            </summary>
+            <typeparam name="T">数据库实体类型</typeparam>
+            <param name="dt">含数据的DataTable</param>
+            <returns>List 数据库实体</returns>
+        </member>
+        <member name="M:CommTools.ConverntHelper.SerializeToJson``1(``0)">
+            <summary>
+            由对象转为json字符串。出错则为空
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">对象</param>
+            <returns>json字符串</returns>
+        </member>
+        <member name="M:CommTools.ConverntHelper.DeSerializeFromJson``1(System.String)">
+            <summary>
+            由json字符串转为对象。出错则为空
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="json">json字符串</param>
+            <returns>对象</returns>
+        </member>
+        <member name="T:CommTools.StringFormat">
+            <summary>
+            字符串格式化形式，包括日期，数字格式
+            DateTime默认格式：2014/12/28 15:44:51
+            </summary>
+        </member>
+        <member name="F:CommTools.StringFormat.DateFormat">
+            <summary>
+            日期格式化，形如：2014-12-28
+            </summary>
+        </member>
+        <member name="F:CommTools.StringFormat.DateTimeFormat">
+            <summary>
+            日期时间格式化，形如：2014-12-28 15:44:51
+            </summary>
+        </member>
+        <member name="T:CommTools.ExcelOpertion">
+            <summary>
+            EXCEL操作类
+            可能不稳定，建议使用NPOI_Office
+            </summary>
+        </member>
+        <member name="M:CommTools.ExcelOpertion.ReadFromExecl(System.String,System.String)">
+            <summary>
+            读取EXCEL文件全部内容
+            </summary>
+            <param name="filePath">EXCEL文件路径</param>
+            <param name="tableName">EXCEL文件表名</param>
+            <returns>返回数据集</returns>
+            <example>
+               DateSet obj = ReadFromExecle(filePath, tableName).Tables[tableName] ;
+               foreach (DataRow row in ((DataTable)obj).Rows)
+               {
+                   rtbInfo.Text += row["单词"].ToString() + "   "
+                       + row["音标"].ToString() + "\n";
+               }
+            </example>
+        </member>
+        <member name="M:CommTools.ExcelOpertion.OutputToExcel(System.Object,System.String)">
+            <summary>
+            用于ASP.NET数据转换为EXCEL下载，编码默认为GB2312
+            </summary>
+            <param name="dt">下载的数据，支持IEnumable接口，例如List,DataTable等类型。数据的属性不支持Nullable类型，有则自动去除</param>
+            <param name="fileName">下载的EXCEL文件名</param>
+        </member>
+        <member name="M:CommTools.ExcelOpertion.OutputToExcel(System.Object,System.String,System.String)">
+            <summary>
+            用于ASP.NET数据转换为EXCEL下载
+            </summary>
+            <param name="dt">下载的数据，支持IEnumable接口，例如List,DataTable等类型。数据的属性不支持Nullable类型，有则自动去除</param>
+            <param name="fileName">下载的EXCEL文件名</param>
+            <param name="encodeName">编码格式，支持GB2312或UTF-8</param>
+        </member>
+        <member name="T:CommTools.SqlHelper">
+            <summary>
+            The SqlHelper class is intended to encapsulate high performance, scalable best practices for 
+            common uses of SqlClient
+            </summary>
+        </member>
+        <member name="M:CommTools.SqlHelper.AttachParameters(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            This method is used to attach array of SqlParameters to a SqlCommand.
+            
+            This method will assign a value of DbNull to any parameter with a direction of
+            InputOutput and a value of null.  
+            
+            This behavior will prevent default values from being used, but
+            this will be the less common case than an intended pure output parameter (derived as InputOutput)
+            where the user provided no input value.
+            </summary>
+            <param name="command">The command to which the parameters will be added</param>
+            <param name="commandParameters">An array of SqlParameters to be added to command</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.AssignParameterValues(System.Data.SqlClient.SqlParameter[],System.Data.DataRow)">
+            <summary>
+            This method assigns dataRow column values to an array of SqlParameters
+            </summary>
+            <param name="commandParameters">Array of SqlParameters to be assigned values</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.AssignParameterValues(System.Data.SqlClient.SqlParameter[],System.Object[])">
+            <summary>
+            This method assigns an array of values to an array of SqlParameters
+            </summary>
+            <param name="commandParameters">Array of SqlParameters to be assigned values</param>
+            <param name="parameterValues">Array of objects holding the values to be assigned</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.PrepareCommand(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[],System.Boolean@)">
+            <summary>
+            This method opens (if necessary) and assigns a connection, transaction, command type and parameters 
+            to the provided command
+            </summary>
+            <param name="command">The SqlCommand to be prepared</param>
+            <param name="connection">A valid SqlConnection, on which to execute this command</param>
+            <param name="transaction">A valid SqlTransaction, or 'null'</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParameters to be associated with the command or 'null' if no parameters are required</param>
+            <param name="mustCloseConnection"><c>true</c> if the connection was opened by the method, otherwose is false.</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQuery(System.String,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns no resultset and takes no parameters) against the database specified in 
+            the connection string
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(connString, CommandType.StoredProcedure, "PublishOrders");
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQuery(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns no resultset) against the database specified in the connection string 
+            using the provided parameters
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(connString, CommandType.StoredProcedure, "PublishOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQuery(System.String,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int result = ExecuteNonQuery(connString, "PublishOrders", 24, 36);
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored prcedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns no resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(conn, CommandType.StoredProcedure, "PublishOrders");
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns no resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(conn, CommandType.StoredProcedure, "PublishOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int result = ExecuteNonQuery(conn, "PublishOrders", 24, 36);
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns no resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(trans, CommandType.StoredProcedure, "PublishOrders");
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns no resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the specified 
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int result = ExecuteNonQuery(conn, trans, "PublishOrders", 24, 36);
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDataset(System.String,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(connString, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDataset(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(connString, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDataset(System.String,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             DataSet ds = ExecuteDataset(connString, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(conn, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             DataSet ds = ExecuteDataset(conn, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(trans, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified 
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             DataSet ds = ExecuteDataset(trans, "GetOrders", 24, 36);
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDataTable(System.String,System.Data.CommandType,System.String)">
+            <summary>
+            返回Dataset的第一个DataTable
+            </summary>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[],CommTools.SqlHelper.SqlConnectionOwnership)">
+            <summary>
+            Create and prepare a SqlCommand, and call ExecuteReader with the appropriate CommandBehavior.
+            </summary>
+            <remarks>
+            If we created and opened the connection, we want the connection to be closed when the DataReader is closed.
+            
+            If the caller provided the connection, we want to leave it to them to manage.
+            </remarks>
+            <param name="connection">A valid SqlConnection, on which to execute this command</param>
+            <param name="transaction">A valid SqlTransaction, or 'null'</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParameters to be associated with the command or 'null' if no parameters are required</param>
+            <param name="connectionOwnership">Indicates whether the connection parameter was provided by the caller, or created by SqlHelper</param>
+            <returns>SqlDataReader containing the results of the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReader(System.String,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(connString, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReader(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(connString, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReader(System.String,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(connString, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(conn, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(conn, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(trans, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+              SqlDataReader dr = ExecuteReader(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(trans, "GetOrders", 24, 36);
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalar(System.String,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(connString, CommandType.StoredProcedure, "GetOrderCount");
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalar(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(connString, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalar(System.String,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(connString, "GetOrderCount", 24, 36);
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(conn, CommandType.StoredProcedure, "GetOrderCount");
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(conn, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(conn, "GetOrderCount", 24, 36);
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(trans, CommandType.StoredProcedure, "GetOrderCount");
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(trans, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the specified
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(trans, "GetOrderCount", 24, 36);
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(conn, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <returns>An XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>An XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(conn, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="spName">The name of the stored procedure using "FOR XML AUTO"</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>An XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(trans, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <returns>An XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <returns>An XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified 
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(trans, "GetOrders", 24, 36);
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.FillDataset(System.String,System.Data.CommandType,System.String,System.Data.DataSet,System.String[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             FillDataset(connString, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"});
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="dataSet">A dataset wich will contain the resultset generated by the command</param>
+            <param name="tableNames">This array will be used to create table mappings allowing the DataTables to be referenced
+            by a user defined name (probably the actual table name)</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.FillDataset(System.String,System.Data.CommandType,System.String,System.Data.DataSet,System.String[],System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             FillDataset(connString, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}, new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+            <param name="dataSet">A dataset wich will contain the resultset generated by the command</param>
+            <param name="tableNames">This array will be used to create table mappings allowing the DataTables to be referenced
+            by a user defined name (probably the actual table name)
+            </param>
+        </member>
+        <member name="M:CommTools.SqlHelper.FillDataset(System.String,System.String,System.Data.DataSet,System.String[],System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             FillDataset(connString, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}, 24);
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataSet">A dataset wich will contain the resultset generated by the command</param>
+            <param name="tableNames">This array will be used to create table mappings allowing the DataTables to be referenced
+            by a user defined name (probably the actual table name)
+            </param>    
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.FillDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.DataSet,System.String[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             FillDataset(conn, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"});
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="dataSet">A dataset wich will contain the resultset generated by the command</param>
+            <param name="tableNames">This array will be used to create table mappings allowing the DataTables to be referenced
+            by a user defined name (probably the actual table name)
+            </param>    
+        </member>
+        <member name="M:CommTools.SqlHelper.FillDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.DataSet,System.String[],System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             FillDataset(conn, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}, new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="dataSet">A dataset wich will contain the resultset generated by the command</param>
+            <param name="tableNames">This array will be used to create table mappings allowing the DataTables to be referenced
+            by a user defined name (probably the actual table name)
+            </param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.FillDataset(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataSet,System.String[],System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             FillDataset(conn, "GetOrders", ds, new string[] {"orders"}, 24, 36);
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataSet">A dataset wich will contain the resultset generated by the command</param>
+            <param name="tableNames">This array will be used to create table mappings allowing the DataTables to be referenced
+            by a user defined name (probably the actual table name)
+            </param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.FillDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.DataSet,System.String[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             FillDataset(trans, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"});
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="dataSet">A dataset wich will contain the resultset generated by the command</param>
+            <param name="tableNames">This array will be used to create table mappings allowing the DataTables to be referenced
+            by a user defined name (probably the actual table name)
+            </param>
+        </member>
+        <member name="M:CommTools.SqlHelper.FillDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.DataSet,System.String[],System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             FillDataset(trans, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}, new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="dataSet">A dataset wich will contain the resultset generated by the command</param>
+            <param name="tableNames">This array will be used to create table mappings allowing the DataTables to be referenced
+            by a user defined name (probably the actual table name)
+            </param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.FillDataset(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataSet,System.String[],System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified 
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             FillDataset(trans, "GetOrders", ds, new string[]{"orders"}, 24, 36);
+            </remarks>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataSet">A dataset wich will contain the resultset generated by the command</param>
+            <param name="tableNames">This array will be used to create table mappings allowing the DataTables to be referenced
+            by a user defined name (probably the actual table name)
+            </param>
+            <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.FillDataset(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.DataSet,System.String[],System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Private helper method that execute a SqlCommand (that returns a resultset) against the specified SqlTransaction and SqlConnection
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             FillDataset(conn, trans, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}, new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">A valid SqlConnection</param>
+            <param name="transaction">A valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="dataSet">A dataset wich will contain the resultset generated by the command</param>
+            <param name="tableNames">This array will be used to create table mappings allowing the DataTables to be referenced
+            by a user defined name (probably the actual table name)
+            </param>
+            <param name="commandParameters">An array of SqlParamters used to execute the command</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.UpdateDataset(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlCommand,System.Data.DataSet,System.String)">
+            <summary>
+            Executes the respective command for each inserted, updated, or deleted row in the DataSet.
+            </summary>
+            <remarks>
+            e.g.:  
+             UpdateDataset(conn, insertCommand, deleteCommand, updateCommand, dataSet, "Order");
+            </remarks>
+            <param name="insertCommand">A valid transact-SQL statement or stored procedure to insert new records into the data source</param>
+            <param name="deleteCommand">A valid transact-SQL statement or stored procedure to delete records from the data source</param>
+            <param name="updateCommand">A valid transact-SQL statement or stored procedure used to update records in the data source</param>
+            <param name="dataSet">The DataSet used to update the data source</param>
+            <param name="tableName">The DataTable used to update the data source.</param>
+        </member>
+        <member name="M:CommTools.SqlHelper.CreateCommand(System.Data.SqlClient.SqlConnection,System.String,System.String[])">
+            <summary>
+            Simplify the creation of a Sql command object by allowing
+            a stored procedure and optional parameters to be provided
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlCommand command = CreateCommand(conn, "AddCustomer", "CustomerID", "CustomerName");
+            </remarks>
+            <param name="connection">A valid SqlConnection object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="sourceColumns">An array of string to be assigned as the source columns of the stored procedure parameters</param>
+            <returns>A valid SqlCommand object</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQueryTypedParams(System.String,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the database specified in 
+            the connection string using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on row values.
+            </summary>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQueryTypedParams(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the specified SqlConnection 
+            using the dataRow column values as the stored procedure's parameters values.  
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on row values.
+            </summary>
+            <param name="connection">A valid SqlConnection object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteNonQueryTypedParams(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the specified
+            SqlTransaction using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on row values.
+            </summary>
+            <param name="transaction">A valid SqlTransaction object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>An int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDatasetTypedParams(System.String,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
+            the connection string using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on row values.
+            </summary>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDatasetTypedParams(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the dataRow column values as the store procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on row values.
+            </summary>
+            <param name="connection">A valid SqlConnection object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteDatasetTypedParams(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlTransaction 
+            using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on row values.
+            </summary>
+            <param name="transaction">A valid SqlTransaction object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>A dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReaderTypedParams(System.String,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
+            the connection string using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReaderTypedParams(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <param name="connection">A valid SqlConnection object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteReaderTypedParams(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlTransaction 
+            using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <param name="transaction">A valid SqlTransaction object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>A SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalarTypedParams(System.String,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the database specified in 
+            the connection string using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalarTypedParams(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the specified SqlConnection 
+            using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <param name="connection">A valid SqlConnection object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteScalarTypedParams(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the specified SqlTransaction
+            using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <param name="transaction">A valid SqlTransaction object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteXmlReaderTypedParams(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <param name="connection">A valid SqlConnection object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>An XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CommTools.SqlHelper.ExecuteXmlReaderTypedParams(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataRow)">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlTransaction 
+            using the dataRow column values as the stored procedure's parameters values.
+            This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <param name="transaction">A valid SqlTransaction object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
+            <returns>An XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="T:CommTools.SqlHelper.SqlConnectionOwnership">
+            <summary>
+            This enum is used to indicate whether the connection was provided by the caller, or created by SqlHelper, so that
+            we can set the appropriate CommandBehavior when calling ExecuteReader()
+            </summary>
+        </member>
+        <member name="F:CommTools.SqlHelper.SqlConnectionOwnership.Internal">
+            <summary>Connection is owned and managed by SqlHelper</summary>
+        </member>
+        <member name="F:CommTools.SqlHelper.SqlConnectionOwnership.External">
+            <summary>Connection is owned and managed by the caller</summary>
+        </member>
+        <member name="T:CommTools.SqlHelperParameterCache">
+            <summary>
+            SqlHelperParameterCache provides functions to leverage a static cache of procedure parameters, and the
+            ability to discover parameters for stored procedures at run-time.
+            </summary>
+        </member>
+        <member name="M:CommTools.SqlHelperParameterCache.DiscoverSpParameterSet(System.Data.SqlClient.SqlConnection,System.String,System.Boolean)">
+            <summary>
+            Resolve at run time the appropriate set of SqlParameters for a stored procedure
+            </summary>
+            <param name="connection">A valid SqlConnection object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="includeReturnValueParameter">Whether or not to include their return value parameter</param>
+            <returns>The parameter array discovered.</returns>
+        </member>
+        <member name="M:CommTools.SqlHelperParameterCache.CloneParameters(System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Deep copy of cached SqlParameter array
+            </summary>
+            <param name="originalParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.SqlHelperParameterCache.CacheParameterSet(System.String,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Add parameter array to the cache
+            </summary>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <param name="commandParameters">An array of SqlParamters to be cached</param>
+        </member>
+        <member name="M:CommTools.SqlHelperParameterCache.GetCachedParameterSet(System.String,System.String)">
+            <summary>
+            Retrieve a parameter array from the cache
+            </summary>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="commandText">The stored procedure name or T-SQL command</param>
+            <returns>An array of SqlParamters</returns>
+        </member>
+        <member name="M:CommTools.SqlHelperParameterCache.GetSpParameterSet(System.String,System.String)">
+            <summary>
+            Retrieves the set of SqlParameters appropriate for the stored procedure
+            </summary>
+            <remarks>
+            This method will query the database for this information, and then store it in a cache for future requests.
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <returns>An array of SqlParameters</returns>
+        </member>
+        <member name="M:CommTools.SqlHelperParameterCache.GetSpParameterSet(System.String,System.String,System.Boolean)">
+            <summary>
+            Retrieves the set of SqlParameters appropriate for the stored procedure
+            </summary>
+            <remarks>
+            This method will query the database for this information, and then store it in a cache for future requests.
+            </remarks>
+            <param name="connectionString">A valid connection string for a SqlConnection</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="includeReturnValueParameter">A bool value indicating whether the return value parameter should be included in the results</param>
+            <returns>An array of SqlParameters</returns>
+        </member>
+        <member name="M:CommTools.SqlHelperParameterCache.GetSpParameterSet(System.Data.SqlClient.SqlConnection,System.String)">
+            <summary>
+            Retrieves the set of SqlParameters appropriate for the stored procedure
+            </summary>
+            <remarks>
+            This method will query the database for this information, and then store it in a cache for future requests.
+            </remarks>
+            <param name="connection">A valid SqlConnection object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <returns>An array of SqlParameters</returns>
+        </member>
+        <member name="M:CommTools.SqlHelperParameterCache.GetSpParameterSet(System.Data.SqlClient.SqlConnection,System.String,System.Boolean)">
+            <summary>
+            Retrieves the set of SqlParameters appropriate for the stored procedure
+            </summary>
+            <remarks>
+            This method will query the database for this information, and then store it in a cache for future requests.
+            </remarks>
+            <param name="connection">A valid SqlConnection object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="includeReturnValueParameter">A bool value indicating whether the return value parameter should be included in the results</param>
+            <returns>An array of SqlParameters</returns>
+        </member>
+        <member name="M:CommTools.SqlHelperParameterCache.GetSpParameterSetInternal(System.Data.SqlClient.SqlConnection,System.String,System.Boolean)">
+            <summary>
+            Retrieves the set of SqlParameters appropriate for the stored procedure
+            </summary>
+            <param name="connection">A valid SqlConnection object</param>
+            <param name="spName">The name of the stored procedure</param>
+            <param name="includeReturnValueParameter">A bool value indicating whether the return value parameter should be included in the results</param>
+            <returns>An array of SqlParameters</returns>
+        </member>
+        <member name="T:CommTools.SMS">
+            <summary>
+            发送短信工具类
+            使用短信猫网站的第三方接口
+            </summary>
+        </member>
+        <member name="M:CommTools.SMS.SendMessage(System.String,System.String)">
+            <summary>
+            发送短信，并返回成功发送的短信数
+            </summary>
+            <param name="phoneNums">接受短信的电话号码，号码间以英文逗号(,)分隔</param>
+            <param name="strMsg">短信内容</param>
+            <returns>成功发送的短信数</returns>
+        </member>
+        <member name="T:CommTools.SqlComment">
+            <summary>
+            数据库注释类
+            </summary>
+        </member>
+        <member name="F:CommTools.SqlComment.ProgramName">
+            <summary>
+            程序名称
+            </summary>
+        </member>
+        <member name="F:CommTools.SqlComment.Author">
+            <summary>
+            作者名称
+            </summary>
+        </member>
+        <member name="M:CommTools.SqlComment.SQLTextComment(System.String)">
+            <summary>
+            Sql语句注释
+            </summary>
+            <param name="sqlDescription">描述</param>
+            <returns>Sql语句注释</returns>
+        </member>
+        <member name="M:CommTools.SqlComment.SQLTextComment(System.String,System.String)">
+            <summary>
+            Sql语句注释
+            </summary>
+            <param name="author">另指定作者名称</param>
+            <param name="sqlDescription">描述</param>
+            <returns>Sql语句注释</returns>
+        </member>
+        <member name="T:CommTools.ExtensionMethods">
+            <summary>
+            静态类,用于扩展方法
+            </summary>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.RemoveSubString(System.String,System.String)">
+            <summary>
+            去除指定子串
+            </summary>
+            <param name="str">待操作的字符串</param>
+            <param name="substring">指定的子串</param>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.RemoveLastSplitFlag(System.String,System.String)">
+            <summary>
+            去除末尾的字符串
+            </summary>
+            <param name="str">待操作的字符串</param>
+            <param name="splitFlag">应去除的末尾字符串</param>
+            <returns>返回处理后的字符串</returns>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.CountSubString(System.String,System.String)">
+            <summary>
+            计算字符串中特定子串的个数。例如原串"aaa",子串"aa",函数返回1
+            </summary>
+            <param name="str">待操作的字符串</param>
+            <param name="substring">待计数的子串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.StringSplit(System.String,System.String)">
+            <summary>
+            根据传进来的分割符将字符串分割
+            </summary>
+            <param name="str">需要分割的字符串</param>
+            <param name="splitStr">分隔符</param>
+            <returns>返回分割好的字符串数组</returns>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.GetValueBetweenMarks(System.String,System.String,System.String)">
+            <summary>
+            获取字符串两标志之间的的字符值
+            </summary>
+            <param name="str">原字符串</param>
+            <param name="begMark">开始标志</param>
+            <param name="endMark">结束标志</param>
+            <returns>字符值，若不存在标志则为null</returns>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.ContainsKeys(System.String,System.String[])">
+            <summary>
+            判断字符串是否全部包含特定关键字.
+            </summary>
+            <param name="str">父字符串</param>
+            <param name="keys">关键字</param>
+            <returns>含有所有关键字则返回true，不含一个或全部不含则返回false</returns>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            判断字符串是否为空串或NULL或只含空白符
+            </summary>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.IsNotNullOrWhiteSpace(System.String)">
+            <summary>
+            判断字符串是否不为空串或NULL或不只含空白符
+            </summary>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.IsZero(System.Int32)">
+            <summary>
+            判断该整数是否为零 
+            </summary>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.IsBetween(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            判断该整数是否处于指定的起止范围内，含等于
+            </summary>
+            <param name="num">要判断的数字</param>
+            <param name="begNum">小数</param>
+            <param name="endNum">大数</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.ToInt(System.String)">
+            <summary>
+            整型字符串转整数
+            </summary>
+            <param name="num">待转换的字符串数字</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.ToLong(System.String)">
+            <summary>
+            整型字符串转长整数
+            </summary>
+            <param name="num">待转换的字符串数字</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.AbbreviateString(System.String,System.Int32,System.String)">
+            <summary>
+            限制字符串长度。若字符串长度大于指定参数，则替代参数代替
+            </summary>
+            <param name="str">原字符串</param>
+            <param name="maxCount">限制最大长度</param>
+            <param name="abbr">最大长度后的字符用此省略符代替</param>
+            <returns>返回带省略符的字符串</returns>
+        </member>
+        <member name="M:CommTools.ExtensionMethods.GetEnumDesc(System.Enum)">
+            <summary>
+            获取枚举的描述信息，若无描述信息则直接返回枚举常量
+            </summary>
+            <param name="e">枚举值</param>
+            <returns>枚举值上定义的Description属性，若无描述信息则直接返回枚举常量</returns>
+        </member>
+        <member name="T:CommTools.Log4NetLog">
+            <summary>
+            Log4Net日志记录类
+            务必在主程序中Config文件中配置好Log4Net
+            </summary>
+        </member>
+        <member name="M:CommTools.Log4NetLog.WriteError(System.Type,System.String)">
+            <summary>
+            写入异常信息
+            </summary>
+            <param name="type">出错对象</param>
+            <param name="errorMessage">详细</param>
+        </member>
+        <member name="T:CommTools.ResultCode">
+            <summary>
+            请求错误枚举
+            </summary>
+        </member>
+        <member name="T:CommTools.AvailableState">
+            <summary>
+            有效状态
+            </summary>
+        </member>
+    </members>
+</doc>
