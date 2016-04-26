@@ -9,11 +9,17 @@ using CommTools;
 
 namespace WeixinTest.Service
 {
-    public class TextMsgService
+    /// <summary>
+    /// 文本消息逻辑服务
+    /// </summary>
+    public class HandleTextMsgService
     {
+        /// <summary>
+        /// 处理原始微信请求报文，返回完整报文
+        /// </summary>
         public string Handle(string requestXml)
         {
-            var requestMsg = Receive(requestXml);
+            var requestMsg = AnalyzeRequestXml2Obj(requestXml);
             LogService.AsycWriteLog("接收消息", requestXml, requestMsg != null);
             if (requestMsg == null)    return null;
 
@@ -22,15 +28,18 @@ namespace WeixinTest.Service
                 FromUserName = requestMsg.ToUserName,
                 ToUserName = requestMsg.FromUserName,
                 MsgType = "text",
+                Content = RespondContent(requestMsg.Content)
             };
-            responseMsg.Content = ResponseContent(requestMsg.Content);
             LogService.AsycWriteLog("处理接收消息", responseMsg.Content, responseMsg.Content != null);
             if (responseMsg.Content == null) return null;
             LogService.AsycWriteLog("处理接收消息",ConverntHelper.SerializeToJson(responseMsg), responseMsg.Content != null);
-            return CreateResponseString(responseMsg);
+            return DeAnalyzeObj2Response(responseMsg);
         }
 
-        public TextMsg Receive(string strXml)
+        /// <summary>
+        /// 将请求消息xml封装成请求消息对象
+        /// </summary>
+        public TextMsg AnalyzeRequestXml2Obj(string strXml)
         {
             #region 微信接收消息示例
             /*
@@ -57,7 +66,7 @@ namespace WeixinTest.Service
             {
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(strXml);
-                XmlElement rootElement = doc.DocumentElement;//获取根节点
+                XmlElement rootElement = doc.DocumentElement;
                 string toUserName = rootElement.SelectSingleNode("ToUserName").InnerText;
                 string fromUserName = rootElement.SelectSingleNode("FromUserName").InnerText;
                 string msgType = rootElement.SelectSingleNode("MsgType").InnerText;
@@ -77,8 +86,10 @@ namespace WeixinTest.Service
             }
         }
 
-
-        public string CreateResponseString(TextMsg textMsg)
+        /// <summary>
+        /// 将向响应消息对应封装成响应消息xml
+        /// </summary>
+        public string DeAnalyzeObj2Response(TextMsg textMsg)
         {
             #region 微信发送消息示例
             /*
@@ -95,20 +106,18 @@ namespace WeixinTest.Service
             #endregion
             string xmlMsg = "<xml>" + "<ToUserName><![CDATA[" + textMsg.ToUserName + "]]></ToUserName>"
                        + "<FromUserName><![CDATA[" + textMsg.FromUserName + "]]></FromUserName>"
-                       + "<CreateTime>" + GetCreateTime() + "</CreateTime>"
-                       + "<MsgType><![CDATA[text]]></MsgType>"  //textMsg.MsgType
+                       + "<CreateTime>" + Helper.GetWeixinCreateTime() + "</CreateTime>"
+                       + "<MsgType><![CDATA[text]]></MsgType>"
                        + "<Content><![CDATA[" + textMsg.Content + "]]></Content>"
                        + "</xml>";
             return xmlMsg;
         }
 
-        public int GetCreateTime()//创建时间戳
-        {
-            DateTime dateStart = new DateTime(1970, 1, 1, 8, 0, 0);//格林威治时间1970，1，1，0，0，0
-            return (int)(DateTime.Now - dateStart).TotalSeconds;
-        }
-
-        public string ResponseContent(string requestContent)
+        /// <summary>
+        /// 根据请求消息返回对应逻辑的响应消息
+        /// 格式：数字 加号 参数
+        /// </summary>
+        public string RespondContent(string requestContent)
         {
             if (!requestContent.Contains("+")) return null;
 
@@ -129,6 +138,5 @@ namespace WeixinTest.Service
             }
             return responseContent;
         }
-
     }
 }

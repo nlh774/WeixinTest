@@ -5,8 +5,14 @@ using System.Threading;
 
 namespace WeixinTest.Service
 {
+    /// <summary>
+    /// 日志记录工具类
+    /// </summary>
     public class LogService
     {
+        /// <summary>
+        /// 异步记录日志
+        /// </summary>
         public static void AsycWriteLog(string type, string info, bool IsSuccess)
         {
             ThreadPool.QueueUserWorkItem(t =>
