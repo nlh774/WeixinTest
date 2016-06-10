@@ -5,11 +5,11 @@ using System.Text;
 
 namespace WeixinTest.Service
 {
-    public class WeatherReportService
+    public class OrderService
     {
-        public string Query(string cityName)
+        public string Query(string serialId)
         {
-            return "天气晴朗";
+            return "您的订单正在发货中";
         }
     }
 }

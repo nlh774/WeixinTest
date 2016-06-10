@@ -52,15 +52,12 @@ namespace WeixinTest.Interface.Controllers
             string requestStr = Helper.HttpResuest2String(Request);
             if (requestStr.IsNullOrWhiteSpace())
             {
-                Response.Write("您输入为空，请输入:1+参数来测试，或者2+地区名来查询天气");
+                WeixinResponseEmpty();
                 return;
             }
 
             string response = new HandleTextMsgService().Handle(requestStr);
-            if (response.IsNullOrWhiteSpace())
-                Response.Write("您输入有误，无法正确解析，请输入:1+参数来测试，或者2+地区名来查询天气");
-            else
-                Response.Write(response);
+            Response.Write(response);
         }
 
         /// <summary>

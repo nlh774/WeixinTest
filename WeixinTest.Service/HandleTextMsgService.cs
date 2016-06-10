@@ -21,17 +21,15 @@ namespace WeixinTest.Service
         {
             var requestMsg = AnalyzeRequestXml2Obj(requestXml);
             LogService.AsycWriteLog("接收消息", requestXml, requestMsg != null);
-            if (requestMsg == null)    return null;
+            if (requestMsg == null) return DescriptionText.WeiXinDefaultResponse;
 
-            var responseMsg = new TextMsg
+            TextMsg responseMsg = new TextMsg
             {
                 FromUserName = requestMsg.ToUserName,
                 ToUserName = requestMsg.FromUserName,
                 MsgType = "text",
                 Content = RespondContent(requestMsg.Content)
             };
-            LogService.AsycWriteLog("处理接收消息", responseMsg.Content, responseMsg.Content != null);
-            if (responseMsg.Content == null) return null;
             LogService.AsycWriteLog("处理接收消息",ConverntHelper.SerializeToJson(responseMsg), responseMsg.Content != null);
             return DeAnalyzeObj2Response(responseMsg);
         }
@@ -119,7 +117,7 @@ namespace WeixinTest.Service
         /// </summary>
         public string RespondContent(string requestContent)
         {
-            if (!requestContent.Contains("+")) return null;
+            if (!requestContent.Contains("+")) return DescriptionText.ParamError;
 
             string responseContent = "";
             string[] requestParams = requestContent.Split('+');
@@ -128,12 +126,28 @@ namespace WeixinTest.Service
             switch (commandNo)
             {
                 case "1":
-                    responseContent = "您输入的命名代号是1,输入的参数是"+commangParam;
-                    break;
+                    {
+                        if (requestParams.Count() >= 3 && requestParams[2].IsNotNullOrWhiteSpace())
+                        {
+                            responseContent = new ExpressService().Query(commangParam, requestParams[2]);
+                        }
+                        else
+                        {
+                            responseContent = DescriptionText.ParamError;
+                        }
+                        break;
+                    }
                 case "2":
                     responseContent = new WeatherReportService().Query(commangParam);
                     break;
+                case "3":
+                    responseContent = "点击联系我们: https://www.baidu.com/"; //微信可能支持发送链接，但可能有问题，待议
+                    break;
+                case "4":
+                    responseContent = new OrderService().Query(commangParam);
+                    break;
                 default:
+                    responseContent = DescriptionText.ParamError ;
                     break;
             }
             return responseContent;

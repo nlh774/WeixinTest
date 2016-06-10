@@ -5,11 +5,11 @@ using System.Text;
 
 namespace WeixinTest.Service
 {
-    public class WeatherReportService
+    public class ExpressService
     {
-        public string Query(string cityName)
+        public string Query(string commangParam, string serialId)
         {
-            return "天气晴朗";
+            return "当前快递已到达江苏";
         }
     }
 }
