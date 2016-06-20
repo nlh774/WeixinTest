@@ -117,19 +117,22 @@ namespace WeixinTest.Service
         /// </summary>
         public string RespondContent(string requestContent)
         {
-            if (!requestContent.Contains("+")) return DescriptionText.ParamError;
-
             string responseContent = "";
             string[] requestParams = requestContent.Split('+');
             string commandNo = requestParams[0];
-            string commangParam = requestParams[1];
+            string commandParam = string.Empty;
+            if (requestContent.Contains("+"))
+            {
+                commandParam = requestParams[1];
+            }
+
             switch (commandNo)
             {
                 case "1":
                     {
-                        if (requestParams.Count() >= 3 && requestParams[2].IsNotNullOrWhiteSpace())
+                        if (commandParam.IsNotNullOrWhiteSpace() && requestParams.Count() == 3 && requestParams[2].IsNotNullOrWhiteSpace())
                         {
-                            responseContent = new ExpressService().Query(commangParam, requestParams[2]);
+                            responseContent = new ExpressService().Query(commandParam, requestParams[2]);
                         }
                         else
                         {
@@ -138,13 +141,19 @@ namespace WeixinTest.Service
                         break;
                     }
                 case "2":
-                    responseContent = new WeatherReportService().Query(commangParam);
+                    if (commandParam.IsNullOrWhiteSpace())
+                        responseContent = DescriptionText.ParamError;
+                    else
+                        responseContent = new WeatherReportService().Query(commandParam);
                     break;
                 case "3":
-                    responseContent = "点击联系我们: https://www.baidu.com/"; //微信可能支持发送链接，但可能有问题，待议
+                    responseContent = "点击联系我们: "+ DescriptionText.WebsiteDomainName;  //微信可能支持发送链接，但可能有问题，待议
                     break;
                 case "4":
-                    responseContent = new OrderService().Query(commangParam);
+                    if (commandParam.IsNullOrWhiteSpace())
+                        responseContent = DescriptionText.ParamError;
+                    else
+                        responseContent = new OrderService().Query(commandParam);
                     break;
                 default:
                     responseContent = DescriptionText.ParamError ;

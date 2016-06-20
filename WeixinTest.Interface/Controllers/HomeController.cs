@@ -15,12 +15,19 @@ namespace WeixinTest.Interface.Controllers
         /// <summary>
         /// 接口主方法
         /// </summary>
-        public void Index()
+        public void Index(string signature, string timestamp, string nonce, string echostr)
         {
-            if (Request.HttpMethod.ToLower() == "get")
-                Response.Write("欢迎访问钮林华微信测试公众号的后端服务");
+            if (signature.IsNotNullOrWhiteSpace() && timestamp.IsNotNullOrWhiteSpace() && nonce.IsNotNullOrWhiteSpace() && echostr.IsNotNullOrWhiteSpace())
+            {
+                ValidateUrl(signature, timestamp, nonce, echostr);
+            }
             else
-                HandleMsg();
+            {
+                if (Request.HttpMethod.ToLower() == "get")
+                    Response.Write("欢迎访问钮林华微信测试公众号的后端服务");
+                else
+                    HandleMsg();
+            }
         }
 
         /// <summary>

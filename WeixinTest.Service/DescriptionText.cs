@@ -21,7 +21,7 @@ namespace WeixinTest.Service
         /// </summary>
         public static string SystemTipResponse
         {
-            get { return "1+快递公司+快递单号 ：查快递;2+城市名 ：查天气预报;3 ：联系我们;4 :订单查询"; }
+            get { return "1+快递公司+快递单号 ：查快递;2+城市名 ：查天气预报;3 ：联系我们;4+订单号:您在我司的订单查询"; }
         }
 
         /// <summary>
@@ -30,6 +30,11 @@ namespace WeixinTest.Service
         public static string ParamError
         {
             get { return "参数错误，正确参数：" + SystemTipResponse; }
+        }
+
+        public static string WebsiteDomainName
+        {
+            get { return "http://nlh774.top"; }
         }
     }
 }
