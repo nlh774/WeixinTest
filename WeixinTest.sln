@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeixinTest.Interface", "Wei
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeixinTest.Entity", "WeixinTest.Entity\WeixinTest.Entity.csproj", "{5C921B56-FAAA-4A4E-A812-11E8A84CBD80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeixinTest.Debug", "WeixinTest.Debug\WeixinTest.Debug.csproj", "{14A6ED93-136E-441E-9BFA-62BF3FF72AFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{5C921B56-FAAA-4A4E-A812-11E8A84CBD80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C921B56-FAAA-4A4E-A812-11E8A84CBD80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C921B56-FAAA-4A4E-A812-11E8A84CBD80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14A6ED93-136E-441E-9BFA-62BF3FF72AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A6ED93-136E-441E-9BFA-62BF3FF72AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A6ED93-136E-441E-9BFA-62BF3FF72AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A6ED93-136E-441E-9BFA-62BF3FF72AFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

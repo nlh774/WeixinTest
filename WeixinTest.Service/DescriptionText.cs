@@ -36,5 +36,10 @@ namespace WeixinTest.Service
         {
             get { return "http://nlh774.top"; }
         }
+
+        public static string SystemError
+        {
+            get { return "系统错误或者您的参数有误"; }
+        }
     }
 }

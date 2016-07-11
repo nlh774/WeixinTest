@@ -120,46 +120,53 @@ namespace WeixinTest.Service
             string responseContent = "";
             string[] requestParams = requestContent.Split('+');
             string commandNo = requestParams[0];
-            string commandParam = string.Empty;
-            if (requestContent.Contains("+"))
-            {
-                commandParam = requestParams[1];
-            }
+            string commandParam = requestContent.Contains("+") ? requestParams[1] : string.Empty;
 
             switch (commandNo)
             {
                 case "1":
                     {
-                        if (commandParam.IsNotNullOrWhiteSpace() && requestParams.Count() == 3 && requestParams[2].IsNotNullOrWhiteSpace())
-                        {
-                            responseContent = new ExpressService().Query(commandParam, requestParams[2]);
-                        }
-                        else
-                        {
-                            responseContent = DescriptionText.ParamError;
-                        }
+                        bool isParamOK = commandParam.IsNotNullOrWhiteSpace() && requestParams.Count() == 3 && requestParams[2].IsNotNullOrWhiteSpace();
+                        responseContent = isParamOK ? new ExpressService().Query(commandParam, requestParams[2]) : DescriptionText.ParamError;
                         break;
                     }
                 case "2":
-                    if (commandParam.IsNullOrWhiteSpace())
-                        responseContent = DescriptionText.ParamError;
-                    else
-                        responseContent = new WeatherReportService().Query(commandParam);
-                    break;
+                    {
+                        responseContent = GetQuerySimpleDecription(commandParam);
+                        break;
+                    }
                 case "3":
-                    responseContent = "点击联系我们: "+ DescriptionText.WebsiteDomainName;  //微信可能支持发送链接，但可能有问题，待议
-                    break;
+                    {
+                        responseContent = "点击联系我们: " + DescriptionText.WebsiteDomainName;  //微信可能支持发送链接，但可能有问题，待议
+                        break;
+                    }
                 case "4":
-                    if (commandParam.IsNullOrWhiteSpace())
-                        responseContent = DescriptionText.ParamError;
-                    else
-                        responseContent = new OrderService().Query(commandParam);
-                    break;
+                    {
+                        responseContent = commandParam.IsNullOrWhiteSpace() ?
+                            DescriptionText.ParamError : new OrderService().Query(commandParam);
+                        break;
+                    }
                 default:
                     responseContent = DescriptionText.ParamError ;
                     break;
             }
             return responseContent;
+        }
+
+        private string GetQuerySimpleDecription(string cityName)
+        {
+            if (cityName.IsNullOrWhiteSpace()) return DescriptionText.ParamError;
+
+            var weather = new WeatherReportService().QuerySimpleDecription(cityName);
+            if(weather.IsError)
+            {
+                LogService.AsycWriteLog("请求天气预报接口", "失败，原因：" + weather.ErrorMessage + "请求参数：" + cityName, false);
+                return DescriptionText.SystemError;
+            }
+            else
+	        {
+                return weather.Content;
+	        }
         }
     }
 }
